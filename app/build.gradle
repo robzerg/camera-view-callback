@@ -37,7 +37,7 @@ configurations {
     all*.exclude group: 'com.google.guava', module: 'listenablefuture'
 }
 
-println "!!! $BITRISEIO_MY_FILE_LOCAL_PATH"
+println "!!! $System.env.BITRISEIO_MY_FILE_LOCAL_PATH"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
