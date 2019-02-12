@@ -18,9 +18,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "SCANBOT_LICENSE_KEY", "<<<< ENTER LICENSE HERE >>>>>"
+        buildConfigField "String", "SCANBOT_LICENSE_KEY", "\"T3GPSabSDr0Imnpyelv2niEj73Sx+Z1QjnukloWA4dNRdgPpopJD/PVVbrP/ttfbec1A8gaIm/YQTVK5WgMk3pevR43cAZS9ZPksa/83hgudtFFE1Ul+2V1sjaNT2t7hBtQvfZR7/qbXSqbKYrgpEm8eX4SD6lx0vQyif/T21N7KJ8EUlzACFAH6VgGCmdQXqu0NGOh2dbUIAMYgShadXm1w4zZKjXU0Mcg35hRKdX4rRrsWFH8pIcEqWg/DORX6TJ7l9wXyvIjV3o4voR3nnOxz8E8tTaq/OPVoAvmue0VTjD6qASx2ejoedO/p7zyvo9y43DCBVaOM44RGKJem2w==\\nU2NhbmJvdFNESwpldS51dml0YS5zdGFnaW5nCjE1NzQwMzUxOTkKMzI3NjcKMg==\\n\""
     }
     buildTypes {
+        debug {
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a", "x86"
+            }
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -31,6 +36,8 @@ android {
 configurations {
     all*.exclude group: 'com.google.guava', module: 'listenablefuture'
 }
+
+println "!!! $BITRISEIO_MY_FILE_LOCAL_PATH"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
