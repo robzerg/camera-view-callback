@@ -44,7 +44,7 @@ println "!!! $System.env.BITRISEIO_example_file_URL"
 
 task downloadFile(type: Download) {
     src "$System.env.BITRISEIO_example_file_URL"
-    dest 'src/main/assets'
+    dest "$projectDir/src/main/resources"
     overwrite false
 }
 
