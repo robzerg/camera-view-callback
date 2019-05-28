@@ -39,17 +39,6 @@ configurations {
     all*.exclude group: 'com.google.guava', module: 'listenablefuture'
 }
 
-//println "!!! $System.env.BITRISEIO_MY_FILE_LOCAL_PATH"
-println "!!! $System.env.BITRISEIO_example_file_URL"
-
-task downloadFile(type: Download) {
-    src "$System.env.BITRISEIO_example_file_URL"
-    dest "$projectDir/src/main/resources"
-    overwrite false
-}
-
-assemble.dependsOn downloadFile
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -60,12 +49,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-    implementation("io.scanbot:sdk-package-4:1.38.3") {
+    implementation("io.scanbot:sdk-package-4:1.50.0") {
         // ScanBot
         exclude group: 'com.google.zxing'
         exclude group: 'androidx.core'
     }
-    implementation ("io.scanbot:sdk-package-ui:1.38.3"){
+    implementation ("io.scanbot:sdk-package-ui:1.50.0"){
         exclude group: 'com.intellij', module: 'annotations'
         exclude group: 'androidx.core'
     }
